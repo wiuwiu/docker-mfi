@@ -6,28 +6,25 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 # install packages
 RUN \
-apt-get update -y && \
-apt-get install -y -q --no-install-recommends openjdk-7-jre-headless mongodb-server unzip && \
+  echo deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti >> /etc/apt/sources.list && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
+  apt-get update -y && \
+  apt-get install -y \
+    openjdk-7-jre-headless \
+    mongodb-server \
+    mfi \
+    wget && \
 
 # cleanup
 apt-get clean && \
 rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
-# add mfi controller software
-ADD https://www.ubnt.com/downloads/mfi/$MFI_VERSION/mFi.unix.zip /
-
-# unpack mfi
-RUN unzip mFi.unix.zip && rm mFi.unix.zip
-
-# links
-RUN mkdir -p /mFi/logs && ln -s /dev/stderr /mFi/logs/mongod.log && ln -s /dev/stderr /mFi/logs/server.log
-
 # add local files
 COPY root/ /
 
 # volumes
-VOLUME /mFi/data
 WORKDIR /usr/lib/mfi
+VOLUME /mFi/data
 
 # ports
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
