@@ -1,4 +1,4 @@
-# docker
+# docker image
 FROM lsiobase/xenial
 
 # environment settings
@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND="noninteractive"
 # install packages
 RUN \
 apt-get update -y && \
-apt-get install -y -q --no-install-recommends openjdk-7-jre-headless mongodb-server unzip wget && \
+apt-get install -y -q --no-install-recommends openjdk-7-jre-headless mongodb-server unzip && \
 
 # cleanup
 apt-get clean && \
@@ -32,3 +32,6 @@ WORKDIR /usr/lib/mfi
 # ports
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
 EXPOSE 1900/udp 3478/udp 10001/udp
+
+# go go go
+CMD ["/usr/bin/java", "-jar", "/usr/lib/mfi/lib/ace.jar", "start"]
