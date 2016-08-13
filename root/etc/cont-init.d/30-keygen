@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+[[ ! -f /mFi/data/keystore ]] &&  keytool -genkey -keyalg RSA -alias mfi -keystore //mFi/data/keystore -storepass devcontrolenterprise -keypass devcontrolenterprise -validity 1825 -keysize 4096 -dname "cn=mfi"
+
+chown abc:abc //mFi/data/keystore
