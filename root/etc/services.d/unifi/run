@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+
+cd /mFi/data
+exec s6-setuidgid abc java -Xmx1024M -jar /usr/lib/mfi/lib/ace.jar start
