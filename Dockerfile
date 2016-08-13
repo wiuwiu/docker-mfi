@@ -22,6 +22,9 @@ RUN unzip mFi.unix.zip && rm mFi.unix.zip
 # links
 RUN mkdir -p /mFi/logs && ln -s /dev/stderr /mFi/logs/mongod.log && ln -s /dev/stderr /mFi/logs/server.log
 
+# add local files
+COPY root/ /
+
 # volumes
 VOLUME /config
 WORKDIR /usr/lib/mfi
