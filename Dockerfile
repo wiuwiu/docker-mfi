@@ -26,7 +26,7 @@ RUN mkdir -p /mFi/logs && ln -s /dev/stderr /mFi/logs/mongod.log && ln -s /dev/s
 COPY root/ /
 
 # volumes
-VOLUME /mFi/data
+VOLUME ["/mFi/data"]
 WORKDIR /usr/lib/mfi
 
 # ports
