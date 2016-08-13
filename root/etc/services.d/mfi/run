@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+cd /config
+
+exec /usr/bin/java -jar /usr/lib/mfi/lib/ace.jar start
