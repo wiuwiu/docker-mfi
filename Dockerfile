@@ -24,7 +24,7 @@ COPY root/ /
 
 # volumes
 WORKDIR /mFi
-VOLUME /mFi/data
+VOLUME /data
 
 # ports
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
