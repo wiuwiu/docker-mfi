@@ -3,10 +3,10 @@
 mkdir -p /config/{data}
 
 
-[[ -L /mfi/data && ! /mfi/data -ef /config/data ]] && unlink /mfi/data
+[[ -L /mFi/data && ! /mFi/data -ef /config/data ]] && unlink /mFi/data
 
 
-[[ ! -L /mfi/data ]] && ln -s /config/data /mfi/data
+[[ ! -L /mFi/data ]] && ln -s /config/data /mFi/data
 
 
-chown -R abc:abc /config /mfi
+chown -R abc:abc /config /mFi
