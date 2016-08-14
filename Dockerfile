@@ -19,13 +19,13 @@ RUN \
 apt-get clean && \
 rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
+# add local files
+COPY root/ /
+
 # volumes
-WORKDIR /usr/lib/mfi
+WORKDIR /mFi
 VOLUME /mFi/data
 
 # ports
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
 EXPOSE 1900/udp 3478/udp 10001/udp
-
-# go go go
-CMD ["/usr/bin/java", "-jar", "/usr/lib/mfi/lib/ace.jar", "start"]
