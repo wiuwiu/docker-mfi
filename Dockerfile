@@ -28,4 +28,4 @@ EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
 EXPOSE 1900/udp 3478/udp 10001/udp
 
 # go go go
-CMD ["/usr/bin/java", "-jar", "/usr/lib/mfi/lib/ace.jar", "start"]
+CMD ["s6-setuidgid" "wojtek" "/usr/bin/java", "-jar", "/usr/lib/mfi/lib/ace.jar", "start"]
