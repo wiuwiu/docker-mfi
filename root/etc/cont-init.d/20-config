@@ -1,9 +1,9 @@
 #!/usr/bin/with-contenv bash
 
-mkdir -p /data/{db,backup,run}
+mkdir -p /data/{db,backup,logs,run}
 
 
-[[ -L /usr/lib/unifi/data && ! /usr/lib/unifi/data -ef /config/data ]] && unlink /usr/lib/unifi/data
+[[ -L /mfi/data && ! /usr/lib/unifi/data -ef /config/data ]] && unlink /usr/lib/unifi/data
 [[ -L /usr/lib/unifi/logs && ! /usr/lib/unifi/logs -ef /config/logs ]] && unlink /usr/lib/unifi/logs
 [[ -L /usr/lib/unifi/run && ! /usr/lib/unifi/run -ef /config/run ]] && unlink /usr/lib/unifi/run
 
