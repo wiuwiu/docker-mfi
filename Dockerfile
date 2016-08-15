@@ -5,14 +5,19 @@ FROM lsiobase/xenial
 ARG DEBIAN_FRONTEND="noninteractive"
 
 # install packages
-RUN echo deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti >> /etc/apt/sources.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
-RUN apt-get update -y
-RUN apt-get install -y openjdk-7-jre-headless mongodb-server mfi wget
+RUN \
+ echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list && \
+ apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
+ apt-get update && \
+ apt-get install -y \
+	openjdk-7-jre-headless \
+	mongodb-server \
+	mfi \
+	wget && \
 
 # cleanup
-RUN apt-get clean
-RUN rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
+apt-get clean && \
+rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # add local files
 COPY root/ /
