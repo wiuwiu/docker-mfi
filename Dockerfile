@@ -5,6 +5,8 @@ FROM lsiobase/xenial
 ARG DEBIAN_FRONTEND="noninteractive"
 
 # install packages
+RUN \
+  echo deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti >> /etc/apt/sources.list && \
 
 # cleanup
 apt-get clean && \
