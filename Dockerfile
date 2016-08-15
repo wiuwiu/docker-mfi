@@ -23,7 +23,7 @@ rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 COPY root/ /
 
 # volumes
-WORKDIR /mFi
+WORKDIR /usr/lib/mfi
 VOLUME /config
 
 # ports
