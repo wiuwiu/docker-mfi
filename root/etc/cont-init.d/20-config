@@ -1,12 +1,11 @@
 #!/usr/bin/with-contenv bash
 
-mkdir -p /config/{data}
+mkdir -p /config/{data,log}
 
+[[ -L /usr/lib/mfi/data && ! /usr/lib/mfi/data -ef /config/data ]] && unlink /usr/lib/mfi/data
+[[ -L /usr/lib/mfi/logs && ! /usr/lib/mfi/logs -ef /config/logs ]] && unlink /usr/lib/mfi/logs
 
-[[ -L /mFi/data && ! /mFi/data -ef /config/data ]] && unlink /mFi/data
+[[ ! -L /usr/lib/mfi/data ]] && ln -s /config/data /usr/lib/mfi/data
+[[ ! -L /usr/lib/mfi/logs ]] && ln -s /config/logs /usr/lib/mfi/logs
 
-
-[[ ! -L /mFi/data ]] && ln -s /config/data /mFi/data
-
-
-chown -R abc:abc /config /mFi
+chown -R abc:abc /config /usr/lib/mfi
