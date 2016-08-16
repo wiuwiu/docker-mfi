@@ -11,8 +11,9 @@ RUN \
   apt-get update && \
   apt-get install -y \
 #	  openjdk-8-jre-headless \
-#	  unifi \
-	  wget && \
+    mongodb-server \
+    unifi \
+    wget && \
 #  apt-get install -y -q --no-install-recommends \
 #    mongodb-server \
 #    mfi \
@@ -26,7 +27,7 @@ rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 #COPY root/ /
 
 # volumes
-WORKDIR /root
+WORKDIR /usr/lib/mfi
 VOLUME /config
 
 # ports
