@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND="noninteractive"
 # install packages
 RUN \
   echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list && \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
 #  apt-get update && \
 #  apt-get install -y -q --no-install-recommends \
 #    mongodb-server \
