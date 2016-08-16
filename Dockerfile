@@ -23,7 +23,7 @@ RUN \
 #COPY root/ /
 
 # volumes
-WORKDIR /usr/lib/mfi
+WORKDIR /root
 VOLUME /config
 
 # ports
