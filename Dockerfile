@@ -1,5 +1,5 @@
 # docker image
-FROM openjdk:7
+FROM lsiobase/xenial
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -7,21 +7,25 @@ ARG DEBIAN_FRONTEND="noninteractive"
 # install packages
 RUN \
   echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list && \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
+#  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
   apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y  software-properties-common && \
+  add-apt-repository ppa:webupd8team/java -y && \
+  apt-get update && \
+  echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
   apt-get install -y \
-    mongodb-server \
-    mfi \
-    wget && \
+   oracle-java7-installer \
+   mongodb-server \
+   mfi \
+   wget && \
 
 # cleanup
 apt-get clean && \
 rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # add local files
-COPY rootfs/ /
-
-RUN ln -s /etc/init.d/wiuwiu.sh /etc/rcS.d/S36wiuwiu.sh
+#COPY rootfs/ /
 
 # volumes
 WORKDIR /usr/lib/mfi
