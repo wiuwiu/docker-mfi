@@ -19,7 +19,7 @@ apt-get clean && \
 rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # add local files
-COPY root/ /
+#COPY root/ /
 
 # volumes
 WORKDIR /usr/lib/mfi
