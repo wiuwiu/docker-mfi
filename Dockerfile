@@ -1,5 +1,5 @@
 # docker image
-FROM debian
+FROM java:7-jre
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -10,7 +10,6 @@ RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
   apt-get update && \
   apt-get install -y \
-    openjdk-7-jre \
     mongodb-server \
     mfi \
     wget && \
