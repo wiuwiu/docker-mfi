@@ -1,5 +1,5 @@
 # docker image
-FROM lsiobase/alpine
+FROM java:7
 #FROM openjdk:7-jre
 #FROM debian
 
