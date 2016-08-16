@@ -1,6 +1,5 @@
 # docker image
-FROM debian
-#FROM openjdk:7-jre
+FROM lsiobase/xenial
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -8,16 +7,20 @@ ARG DEBIAN_FRONTEND="noninteractive"
 # install packages
 RUN \
   echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list && \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
-#  apt-get update && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
+  apt-get update && \
+  apt-get install -y \
+#	  openjdk-8-jre-headless \
+#	  unifi \
+	  wget && \
 #  apt-get install -y -q --no-install-recommends \
 #    mongodb-server \
 #    mfi \
 #    wget && \
 
 # cleanup
-#apt-get clean && \
-#rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
+apt-get clean && \
+rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # add local files
 #COPY root/ /
