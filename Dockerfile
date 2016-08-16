@@ -6,10 +6,12 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 # install packages
 RUN \
-echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list && \
-apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
-apt-get update
-
+  echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
+  apt-get update && \
+  apt-get install -y \
+  openjdk-7-jre-headless
+	
 # cleanup
 apt-get clean && \
 rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
