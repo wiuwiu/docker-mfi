@@ -1,5 +1,5 @@
 # docker image
-FROM java:7-jre
+FROM debian
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -10,6 +10,7 @@ RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
   apt-get update && \
   apt-get install -y -q --no-install-recommends \
+    openjdk-7-jre \
     mongodb-server \
     mfi \
     wget && \
@@ -28,3 +29,5 @@ VOLUME /config
 # ports
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
 EXPOSE 1900/udp 3478/udp 10001/udp
+
+CMD ["java", "-jar", "lib/ace.jar", "start"]
