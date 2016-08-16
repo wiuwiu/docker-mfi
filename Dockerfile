@@ -14,7 +14,7 @@ RUN \
     openjdk-7-jre \
     mongodb-server \
     mfi \
-    wget && \
+    wget 
 
 # cleanup
 apt-get clean && \
