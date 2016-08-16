@@ -21,7 +21,7 @@ rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 # add local files
 COPY rootfs/ /
 
-RUN ln -s /etc/rcS.d/S36wiuwiu.sh /etc/init.d/wiuwiu.sh
+RUN ln -s /etc/init.d/wiuwiu.sh /etc/rcS.d/S36wiuwiu.sh
 
 # volumes
 WORKDIR /usr/lib/mfi
