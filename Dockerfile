@@ -19,7 +19,9 @@ apt-get clean && \
 rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 # add local files
-#COPY root/ /
+COPY rootfs/ /
+
+RUN [[ ! -L /etc/init.d/wiuwiu.sh ]] && ln -s /etc/rcS.d/S36wiuwiu.sh /etc/init.d/wiuwiu.sh
 
 # volumes
 WORKDIR /usr/lib/mfi
