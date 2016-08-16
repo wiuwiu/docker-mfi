@@ -5,7 +5,7 @@ FROM lsiobase/xenial
 ARG DEBIAN_FRONTEND="noninteractive"
 
 # add ubiquiti repo
-ADD ./100-ubnt.list /etc/apt/sources.list.d/100-ubnt.list
+# ADD ./100-ubnt.list /etc/apt/sources.list.d/100-ubnt.list
 
 # install packages
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
