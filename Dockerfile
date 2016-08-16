@@ -1,5 +1,6 @@
 # docker image
-FROM openjdk:7
+FROM lsiobase/xenial
+#FROM openjdk:7
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -11,7 +12,7 @@ RUN \
   apt-get update && \
   apt-get install -y \
     mongodb-server \
-    unifi \
+    mfi \
     wget && \
 
 # cleanup
