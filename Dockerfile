@@ -1,5 +1,6 @@
 # docker image
-FROM openjdk:7-jre
+FROM lsiobase/alpine
+#FROM openjdk:7-jre
 #FROM debian
 
 # environment settings
@@ -13,7 +14,7 @@ RUN \
   apt-get install -y -q --no-install-recommends \
     mongodb-server \
     mfi \
-    wget && \
+    wget
 
 # cleanup
 apt-get clean && \
