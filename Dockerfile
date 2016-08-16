@@ -1,6 +1,5 @@
 # docker image
-#FROM lsiobase/xenial
-FROM java:7-jre
+FROM debian
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -10,10 +9,12 @@ RUN \
   echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
   apt-get update && \
-  apt-get install -y -q --no-install-recommends mongodb-server unzip openjdk-7-jre
-# apt-get install -y \
-#    openjdk-7-jre
-	
+  apt-get install -y --no-install-recommends \
+  openjdk-7-jre \
+  mongodb-server \
+  mfi \
+  wget
+
 # cleanup
 apt-get clean && \
 rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
