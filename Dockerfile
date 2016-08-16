@@ -6,6 +6,7 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 # install packages
 RUN echo "deb http://dl.ubnt.com/mfi/distros/deb/debian debian ubiquiti" >> /etc/apt/sources.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
 
 # cleanup
 apt-get clean && \
