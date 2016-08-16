@@ -10,14 +10,10 @@ RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50 && \
   apt-get update && \
   apt-get install -y \
-#	  openjdk-8-jre-headless \
+   openjdk-7-jre-headless \
     mongodb-server \
     unifi \
     wget && \
-#  apt-get install -y -q --no-install-recommends \
-#    mongodb-server \
-#    mfi \
-#    wget && \
 
 # cleanup
 apt-get clean && \
@@ -34,4 +30,4 @@ VOLUME /config
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
 EXPOSE 1900/udp 3478/udp 10001/udp
 
-CMD ["bash"]
+CMD ["java", "-jar", "/mFi/lib/ace.jar", "start"]
