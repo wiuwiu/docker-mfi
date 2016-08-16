@@ -1,5 +1,6 @@
 # docker image
-FROM lsiobase/xenial
+#FROM lsiobase/xenial
+FROM java:7-jre
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
