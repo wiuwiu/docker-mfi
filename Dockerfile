@@ -29,4 +29,4 @@ VOLUME /config
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
 EXPOSE 1900/udp 3478/udp 10001/udp
 
-CMD ["java", "-jar", "/mFi/lib/ace.jar", "start"]
+CMD ["java", "-jar", "/usr/lib/mfi/lib/ace.jar", "start"]
