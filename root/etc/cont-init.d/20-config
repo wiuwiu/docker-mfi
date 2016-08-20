@@ -2,10 +2,10 @@
 
 mkdir -p /config/{data,log}
 
-[[ -L /usr/lib/mfi/data && ! /usr/lib/mfi/data -ef /config/data ]] && unlink /usr/lib/mfi/data
-[[ -L /usr/lib/mfi/logs && ! /usr/lib/mfi/logs -ef /config/logs ]] && unlink /usr/lib/mfi/logs
+#[[ -L /usr/lib/mfi/data && ! /usr/lib/mfi/data -ef /config/data ]] && unlink /usr/lib/mfi/data
+#[[ -L /usr/lib/mfi/logs && ! /usr/lib/mfi/logs -ef /config/logs ]] && unlink /usr/lib/mfi/logs
 
-[[ ! -L /usr/lib/mfi/data ]] && ln -s /config/data /usr/lib/mfi/data
-[[ ! -L /usr/lib/mfi/logs ]] && ln -s /config/logs /usr/lib/mfi/logs
+#[[ ! -L /usr/lib/mfi/data ]] && ln -s /config/data /usr/lib/mfi/data
+#[[ ! -L /usr/lib/mfi/logs ]] && ln -s /config/logs /usr/lib/mfi/logs
 
 chown -R abc:abc /config /usr/lib/mfi
