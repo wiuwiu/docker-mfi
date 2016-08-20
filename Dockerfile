@@ -29,7 +29,8 @@ COPY root/ /
 
 # volumes
 WORKDIR /usr/lib/mfi
-VOLUME /config
+VOLUME /usr/lib/mfi/data
+#VOLUME /config
 
 # ports
 EXPOSE 2323/tcp 6080/tcp 6443/tcp 6843/tcp 6880/tcp
