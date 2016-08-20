@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-[[ ! -f /usr/lib/mfi/data/keystore ]] &&  keytool -genkey -keyalg RSA -alias mfi -keystore /usr/lib/mfi/data/keystore -storepass homeautomationcontrolenterprise -keypass homeautomationcontrolenterprise -validity 1825 -keysize 4096 -dname "cn=mfi"
+[[ ! -f /config/data/keystore ]] &&  keytool -genkey -keyalg RSA -alias mfi -keystore /config/data/keystore -storepass homeautomationcontrolenterprise -keypass homeautomationcontrolenterprise -validity 1825 -keysize 4096 -dname "cn=mfi"
 
-chown abc:abc /usr/lib/mfi/data/keystore
+chown abc:abc /config/data/keystore
